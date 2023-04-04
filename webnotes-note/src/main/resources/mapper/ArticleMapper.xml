@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.shirakawatyu.webnotes.note.dao.ArticleMapper">
+
+    <select id="selectArticleByUsername" resultType="org.shirakawatyu.webnotes.note.pojo.Article">
+        select * from `webnotes`.`article` where `username`=#{username} and `folder`=#{folder} order by `time` desc
+    </select>
+
+    <insert id="addArticle" parameterType="org.shirakawatyu.webnotes.note.pojo.Article">
+        insert into `webnotes`.`article`(aid, article, username, folder, public, time) values (#{aid},#{article},#{username},#{folder},#{isPublic},#{time})
+    </insert>
+
+    <delete id="deleteArticle" parameterType="int">
+        delete from `webnotes`.`article` where `username`=#{username} and  `aid`=#{aid}
+    </delete>
+
+    <delete id="deleteArticleByFolder" parameterType="int">
+        delete from `webnotes`.`article` where `username`=#{username} and `folder`=#{folder}
+    </delete>
+
+    <select id="selectArticleById" parameterType="int" resultType="org.shirakawatyu.webnotes.note.pojo.Article">
+        select * from `webnotes`.`article` where `aid`=#{aid}
+    </select>
+
+    <select id="selectArticleByWord" resultType="org.shirakawatyu.webnotes.note.pojo.Article">
+        select * from `webnotes`.`article` where `username`=#{username} and `article` like concat('%',#{word},'%')
+    </select>
+
+    <update id="updateArticle">
+        update `webnotes`.`article` set article=#{article},folder=#{folder},time=#{time} where `aid`=#{aid}
+    </update>
+
+    <update id="shareArticle">
+        update `webnotes`.`article` set `public`=1 where `username`=#{username} and `aid`=#{aid}
+    </update>
+
+    <update id="cancelShare">
+        update `webnotes`.`article` set `public`=0 where `username`=#{username} and `aid`=#{aid}
+    </update>
+
+    <select id="shareList" resultType="org.shirakawatyu.webnotes.note.pojo.Article">
+        select * from `webnotes`.`article` where `username`=#{username} and `public`=1
+    </select>
+</mapper>

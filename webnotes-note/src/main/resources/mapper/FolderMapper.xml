@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.shirakawatyu.webnotes.note.dao.FolderMapper">
+    <insert id="createFolder" parameterType="org.shirakawatyu.webnotes.note.pojo.Folder">
+        insert into `webnotes`.`folder`(folder, name, username) values (#{folder}, #{name}, #{username})
+    </insert>
+
+    <select id="selectFolder" resultType="org.shirakawatyu.webnotes.note.pojo.Folder">
+        select * from `webnotes`.`folder` where `username`=#{username}
+    </select>
+
+    <delete id="deleteFolder">
+        delete from `webnotes`.`folder` where `username`=#{username} and `id`=#{id}
+    </delete>
+</mapper>

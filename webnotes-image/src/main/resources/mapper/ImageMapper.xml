@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.shirakawatyu.webnotes.image.dao.ImageMapper">
+
+    <select id="selectImageByUser" resultType="org.shirakawatyu.webnotes.image.pojo.Image">
+        select * from `webnotes`.`image` where `username`=#{username}
+    </select>
+
+    <insert id="addImage" parameterType="org.shirakawatyu.webnotes.image.pojo.Image">
+        insert into `webnotes`.`image`(name, username) values(#{name},#{username})
+    </insert>
+
+    <delete id="deleteImage" parameterType="String">
+        delete from `webnotes`.`image` where `username`=#{username} and `name`=#{name}
+    </delete>
+
+</mapper>
