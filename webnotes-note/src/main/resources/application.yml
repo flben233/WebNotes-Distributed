@@ -11,9 +11,9 @@ spring:
       maximum-pool-size: 30
   data:
     redis:
-      host: 72.18.82.111
+      host: 
       port: 6379
-      password: shirakawatyu
+      password: 
 
 cache:
   default:
