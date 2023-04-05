@@ -13,13 +13,13 @@ spring:
     protocol: smtps
     port: 465
     host: smtp.163.com
-    username: shirakawatyu@163.com
-    password: DDAAVFPIPAMYKNHP
+    username: 
+    password: 
   data:
     redis:
-      host: 72.18.82.111
+      host: 
       port: 6379
-      password: shirakawatyu
+      password: 
 
 mybatis:
   mapper-locations: classpath:mapper/*.xml
