@@ -15,15 +15,15 @@ spring:
       max-request-size: 100MB
   data:
     redis:
-      host: 72.18.82.111
+      host:
       port: 6379
-      password: shirakawatyu
+      password: 
 
 minio:
-  endpoint: http://72.18.82.111:9000
+  endpoint: 
   bucketName: webnotes
-  accessKey: oE7nJPCLXjpaTPef
-  secretKey: FfpRs0qSBHI3DzMQgidOFrR3NVkb5QWg
+  accessKey: 
+  secretKey: 
 
 mybatis:
   mapper-locations: classpath:mapper/*.xml
